@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_TemplatePage.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <script src="~/Template/SB-Admin/js/jquery.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="panel-title"><b>Datos Generales</b></div>
+                </div>
+                <div class="panel-body">
+                    <div id="panel_content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span>ID:</span>
+                                <span>1057446</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span>Indice Trimestral:</span>
+                                <span>4.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                
+                <div class="panel-body">
+                    <div id="panel content">
+                        <div class="flot-chart">
+                            <div class="flot-chart-content" id="flot-moving-line-chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#panel_content').load('/Home/Partial');
+        });
+            
+
+    </script>>
+</body>
+</html>
+
