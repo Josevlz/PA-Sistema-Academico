@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DataModels;
+using Sistema_Academico.Repository;
 
 namespace Sistema_Academico.Controllers
 {
     public class HomeController : Controller
     {
+        DataRepo Repo = new DataRepo();
+
         public ActionResult Index()
         {
             return View();
@@ -48,6 +51,12 @@ namespace Sistema_Academico.Controllers
             };
             
             return PartialView(MyUser);
+        }
+
+        public ActionResult _AllSubjects()
+        {
+            
+            return PartialView(Repo.GetSubjects());
         }
     }
 }
