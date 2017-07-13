@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_TemplatePage.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <script src="~/Template/SB-Admin/js/jquery.js"></script>
+    <link href="~/Content/CSS custom/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="linebar"><span>Informacion General</span></div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                
+                <div class="panel-body">
+                    <div id="panel_Table">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="linebar"><span>Asignaturas Seleccionadas - </span></div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#panel_content').load('/Estudiante/StudentInfo');
+            $('#panel_Table').load('/Home/_AllSubjects');
+        });
+            
+
+    </script>
+</body>
+</html>
+

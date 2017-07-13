@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Sistema_Academico.Models;
+using DataModels;
+//using static Sistema_Academico.Models.DataModels;
 
 namespace Sistema_Academico
 {

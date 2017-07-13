@@ -1,0 +1,80 @@
+﻿@model IEnumerable<DataModels.Asignatura>
+
+@{
+    ViewBag.Title = "Pre_Seleccion";
+    Layout = "~/Views/Shared/_TemplatePage.cshtml";
+}
+<link href="~/Content/CSS custom/StyleSheet.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+<h2>Pre Seleccion</h2>
+
+
+@using (Ajax.BeginForm("PSTable", "Estudiante", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "dataTable", InsertionMode = InsertionMode.Replace }))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="input-group-btn search-panel">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span id="search_concept">Buscar Por</span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#contains">Codigo</a></li>
+                            <li><a href="#its_equal">Nombre</a></li>
+                        </ul>
+                    </div>
+                    <input type="hidden" name="search_param" value="all" id="search_param">
+                    @Html.TextBox("name",null, new { @class = "form-control" , id="test" })
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<br />
+
+<div class="linebar" id="test2"><span>Asignaturas Preseleccionadas - </span></div>
+
+<br />
+<div class="row">
+    <div id="dataTable2">
+
+    </div>
+</div>
+
+
+
+<div class="linebar"><span>Asignaturas Ofertadas  </span></div>
+<br />
+<div>
+    <div id="dataTable">
+
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" >
+    $(document).ready(function (e) {
+        $('.search-panel .dropdown-menu').find('a').click(function (e) {
+            e.preventDefault();
+            var param = $(this).attr("href").replace("#", "");
+            var concept = $(this).text();
+            $('.search-panel span#search_concept').text(concept);
+            $('.input-group #search_param').val(param);
+        });
+
+        $('#dataTable').load('/Estudiante/PSTable');
+        $('#dataTable2').load('/Estudiante/myPreselection');
+        
+            
+    });
+
+</script>

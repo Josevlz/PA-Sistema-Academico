@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DataModels.Asignatura>
+
+@{
+    ViewBag.Title = "ShowPensum";
+    Layout = "~/Views/Shared/_TemplatePage.cshtml";
+}
+<link href="~/Content/CSS custom/StyleSheet.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
+<div class="linebar" ><span><b>PENSUM</b></span></div>
+<br />
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Codigo)
+        </th>
+        <th>
+            
+            @Html.DisplayName("Asignatura")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Creditos)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            
+            @Html.DisplayFor(modelItem => item.Codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreAsig)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creditos)
+        </td>
+        
+    </tr>
+}
+
+</table>

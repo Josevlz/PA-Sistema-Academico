@@ -153,8 +153,8 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#profile"><i class="glyphicon glyphicon-edit"></i> <b> Proceso Acamedico</b> <b class="caret"></b></a>
                         <ul id="profile" class="collapse">
-                            <li><a href="@Url.Action("ListUser","Account")"><i class="glyphicon glyphicon-check"></i> Seleccion </a></li>
-                            <li><a href="@Url.Action("Register","Account")"><i class="glyphicon glyphicon-plus"></i> Retiro</a></li>
+                            <li><a href="@Url.Action("Pre_Seleccion","Estudiante")"><i class="glyphicon glyphicon-check"></i> Pre-Seleccion </a></li>
+                            <li><a href="@Url.Action("Pre_Seleccion", "Estudiante")"><i class="glyphicon glyphicon-plus"></i> Retiro</a></li>
                             <li><a href="/"><i class="glyphicon glyphicon-eye-open"></i> Revision Calificaciones</a></li>
                         </ul>
                     </li>
@@ -168,8 +168,8 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#Asig"><i class="glyphicon glyphicon-home"></i><b> Asignaturas</b> <b class="caret"></b></a>
                         <ul id="Asig" class="collapse">
-                            <li><a href="@Url.Action("Index","Empresas")"><i class="glyphicon glyphicon-file"></i> Pensum</a></li>
-                            <li><a href="@Url.Action("Create","Empresas")"><i class="glyphicon glyphicon-plus"></i> Oferta Academica</a></li>
+                            <li><a href="@Url.Action("ShowPensum","Estudiante")"><i class="glyphicon glyphicon-file"></i> Pensum</a></li>
+                            <li><a href="@Url.Action("ShowPensum", "Estudiante")"><i class="glyphicon glyphicon-plus"></i> Oferta Academica</a></li>
                         </ul>
                     </li>
 

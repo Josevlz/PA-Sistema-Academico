@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Sistema_Academico.Models;
+using DataModels;
 
 namespace Sistema_Academico.Controllers
 {

@@ -1,0 +1,61 @@
+﻿@using Sistema_Academico.ViewModel.EstudianteVM
+@model IEnumerable <VMPreseleccion>
+
+@using (Ajax.BeginForm("myPreselection", "Estudiante", null, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "dataTable2" }))
+{
+    <div class="col-md-8">
+        <table class="table">
+            <tr>
+                <th class="col-md-2">
+                    @Html.DisplayName("Codigo")
+                </th>
+                <th class="col-md-4">
+                    @Html.DisplayName("Asignatura")
+                </th>
+                <th class="col-md-1">
+                    @Html.DisplayName("Tanda")
+                </th>
+                <th class="col-md-1"></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.codigo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tanda)
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" id="dltBtn" type="button">
+
+
+                            @Ajax.ActionLink("Borrar", "myPreselection", new { id = item.VmPreId }, new AjaxOptions()
+                       {
+                           HttpMethod = "POST",
+                           UpdateTargetId = "AjaxTable",
+                           InsertionMode = InsertionMode.Replace
+                       })
+
+                        </button>
+                        @*<button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash"></span></button>*@
+                        
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}
+
+<script type="text/javascript">
+
+    $('#dltBtn').click(function () {
+        location.reload();
+    });
+
+</script>

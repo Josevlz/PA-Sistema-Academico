@@ -39,24 +39,24 @@ namespace Sistema_Academico.Controllers
 
         public ActionResult Partial()
         {
-            ViewBag.text = "Sample text";
-            Usuario MyUser = new Usuario
-            {
-                UserID = 1057446,
-                Name = "Jose valdez",
-                IndiceT=4.00,
-                IndiceG=3.5,
-                Condition="Normal",
-                career="Ingenieria en sistemas"
-            };
+            //ViewBag.text = "Sample text";
+            //Usuario MyUser = new Usuario
+            //{
+            //    UserID = 1057446,
+            //    Name = "Jose valdez",
+            //    IndiceT=4.00,
+            //    IndiceG=3.5,
+            //    Condition="Normal",
+            //    career="Ingenieria en sistemas"
+            //};
             
-            return PartialView(MyUser);
+            return PartialView();
         }
 
         public ActionResult _AllSubjects()
         {
             
-            return PartialView(Repo.GetSubjects());
+            return PartialView();
         }
     }
 }

@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.linebar{
+    padding: 7px 10px;
+    background-color: #404040;
+    color: #FFF;
+}
+
+th  {
+    background:  #E02F32;
+    color: white;
+}
+
+a {
+    color:white;
+    text-decoration:none;
+}
+
+a:hover { 
+    color: white;
+    text-decoration:none;
+}

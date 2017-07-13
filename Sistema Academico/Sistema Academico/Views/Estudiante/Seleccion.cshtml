@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Seleccion";
+    Layout = "~/Views/Shared/_TemplatePage.cshtml";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link href="~/Content/CSS custom/StyleSheet.css" rel="stylesheet" />
+
+<h2>Seleccion</h2>
+
+<div id="Asg_table"></div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#Asg_table").load("/Estudiante/Asig_Pensum")
+    });
+
+</script>

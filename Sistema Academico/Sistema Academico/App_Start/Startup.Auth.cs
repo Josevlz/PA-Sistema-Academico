@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Sistema_Academico.Models;
+using DataModels;
+//using Sistema_Academico.Models.DataModels;
 
 namespace Sistema_Academico
 {
