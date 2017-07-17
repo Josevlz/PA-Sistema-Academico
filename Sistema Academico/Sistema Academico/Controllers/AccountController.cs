@@ -13,7 +13,7 @@ using DataModels;
 
 namespace Sistema_Academico.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

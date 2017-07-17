@@ -9,8 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Sistema_Academico.ViewModel;
+
 using Sistema_Academico.ViewModel.EstudianteVM;
+using Sistema_Academico.Repository;
 
 namespace Sistema_Academico.Controllers
 {
@@ -57,21 +58,25 @@ namespace Sistema_Academico.Controllers
             List<Asignatura> asignaturas = new List<Asignatura>();
 
             var user = UserManager.FindById(User.Identity.GetUserId());
-            var asg = new Pensum();
-            //Estudiante e = new Estudiante();
-            using (ApplicationDbContext DBContext = new ApplicationDbContext())
-            {
-                var Estudiante = DBContext.Estudiantes.Where(a => a.ApplicationUser.Id.Equals(user.Id)).FirstOrDefault();
-                var psn = DBContext.Pensums.Where(b => b.Carrera.CarreraId.Equals(Estudiante.Carrera.CarreraId)).FirstOrDefault();
-                asg = DBContext.Pensums.Where(p => p.PensumId == psn.PensumId).Include(t => t.Asignatura).FirstOrDefault();
-                
-            }
-            return PartialView(asg.Asignatura.ToList());
+            _Estudiante Repository = new _Estudiante(ApplicationDbContext);
+            //var asg = new Pensum();
+            ////Estudiante e = new Estudiante();
+            //using (ApplicationDbContext DBContext = new ApplicationDbContext())
+            //{
+            //    var Estudiante = DBContext.Estudiantes.Where(a => a.ApplicationUser.Id.Equals(user.Id)).FirstOrDefault();
+            //    var psn = DBContext.Pensums.Where(b => b.Carrera.CarreraId.Equals(Estudiante.Carrera.CarreraId)).FirstOrDefault();
+            //    asg = DBContext.Pensums.Where(p => p.PensumId == psn.PensumId).Include(t => t.Asignatura).FirstOrDefault();
+
+            //}
+            return PartialView(Repository.Est_Pensum(Repository.GetId(user.Id)));
         }
 
         public ActionResult Pre_Seleccion()
         {
-            //var model = ApplicationDbContext.Asignaturas.ToList();
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            _Estudiante Repository = new _Estudiante(ApplicationDbContext);
+            var a = Repository.GetId(user.Id);
+            Repository.Est_Pensum(a);
             return View();
         }
 
@@ -132,7 +137,7 @@ namespace Sistema_Academico.Controllers
                 //                   {
                 //                       asg.NombreAsig
                 //                   };
-                model = ApplicationDbContext.Asignaturas.Where(a => a.NombreAsig.Contains(name) && ).ToList();
+                model = ApplicationDbContext.Asignaturas.ToList();
             }
             return PartialView(model);
         }
